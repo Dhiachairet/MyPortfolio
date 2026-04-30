@@ -9,7 +9,7 @@ export default function Hero() {
           Available for internships &amp; Part-Time Jobs
         </div>
         <h1 className="reveal-delay text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight mt-6 leading-tight text-slate-50">
-         Hi, I'm Mohamed Dhia Chairet
+         Hi, I&rsquo;m Mohamed Dhia Chairet
         </h1>
         <p className="reveal-delay-lg text-slate-300 max-w-2xl mt-6 text-lg">
          Software engineering student at TEK-UP University. I build full-stack web apps from scratch backend, database, UI, the whole thing. Everything in my portfolio is something I actually finished and got working.
