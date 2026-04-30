@@ -24,7 +24,7 @@ export default function AboutPage() {
           </div>
           </div>
           <div className="flex flex-wrap gap-3">
-            <a href="/Mohameddhiachairetcv.pdf" download className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/10 transition">Download CV</a>
+            <a href="/MohamedDhiaChairetResume.pdf" download className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/10 transition">Download CV</a>
             <a href="/contact" className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/10 transition">Contact</a>
             <a href="https://www.linkedin.com/in/dhia-chairet-baba16249/" target="_blank" rel="noreferrer" className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/10 transition">LinkedIn</a>
           </div>
