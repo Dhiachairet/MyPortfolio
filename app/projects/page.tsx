@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ProjectCard from "../components/ProjectCard";
-import { fetchGithubRepos } from "../../lib/github";
+import { fetchGithubRepos, type Repo } from "../../lib/github";
 import { siteConfig } from "../../lib/site";
 
 export const metadata = { title: "Projects — Mohamed Dhia Chairet" };
@@ -11,7 +11,7 @@ export default async function ProjectsPage() {
   const pinned = new Set((siteConfig.pinnedRepos || []).map((n) => n.toLowerCase()));
   const pinnedRepos = (siteConfig.pinnedRepos || [])
     .map((name) => repos.find((r) => r.name.toLowerCase() === name.toLowerCase()))
-    .filter(Boolean);
+    .filter((repo): repo is Repo => Boolean(repo));
   const otherRepos = repos.filter((r) => !pinned.has(r.name.toLowerCase()));
 
   return (
