@@ -37,25 +37,25 @@ export default function ContactPage() {
           Software engineering student looking for internships or part-time work where I can actually write code and contribute. If you have something going on, feel free to reach out.
         </p>
         <div className="mt-6 grid gap-3">
-          <a href="mailto:mohameddhia.chairet@gmail.com" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white hover:border-cyan-300/40 hover:bg-white/10 transition">
+          <a href="mailto:mohameddhia.chairet@gmail.com" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white hover:border-cyan-300/40 hover:bg-white/10 transition min-w-0">
             <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
               <IconMail className="h-5 w-5" />
             </span>
-            <span className="font-semibold">mohameddhia.chairet@gmail.com</span>
+            <span className="font-semibold break-all">mohameddhia.chairet@gmail.com</span>
           </a>
 
-          <a href="https://github.com/Dhiachairet" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white hover:border-cyan-300/40 hover:bg-white/10 transition">
+          <a href="https://github.com/Dhiachairet" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white hover:border-cyan-300/40 hover:bg-white/10 transition min-w-0">
             <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
               <IconGithub className="h-5 w-5" />
             </span>
-            <span className="font-semibold">github.com/Dhiachairet</span>
+            <span className="font-semibold break-all">github.com/Dhiachairet</span>
           </a>
 
-          <a href="https://www.linkedin.com/in/dhia-chairet-baba16249/" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white hover:border-cyan-300/40 hover:bg-white/10 transition">
+          <a href="https://www.linkedin.com/in/dhia-chairet-baba16249/" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white hover:border-cyan-300/40 hover:bg-white/10 transition min-w-0">
             <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
               <IconLinkedIn className="h-5 w-5" />
             </span>
-            <span className="font-semibold">linkedin.com/in/dhia-chairet-baba16249</span>
+            <span className="font-semibold break-all">linkedin.com/in/dhia-chairet-baba16249</span>
           </a>
         </div>
       </div>
