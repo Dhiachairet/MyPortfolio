@@ -1,181 +1,198 @@
 import Image from "next/image";
+import { ArrowUpRight, Download, MapPin } from "lucide-react";
+import ExperienceList from "../components/ExperienceList";
+import Reveal from "../components/Reveal";
+import SectionHeading from "../components/SectionHeading";
+import { LinkedinIcon } from "../components/icons";
+import { TechChip } from "../components/TechIcon";
+import { ButtonLink, Eyebrow, Serif } from "../components/ui";
+import { education, involvement, skills, spokenLanguages } from "../../lib/content";
+import { siteConfig } from "../../lib/site";
 
-export const metadata = { title: "About — Mohamed Dhia Chairet" };
+export const metadata = { title: "About" };
+
+const quickFacts = [
+  { label: "Location", value: siteConfig.location },
+  { label: "Status", value: "Final-year student" },
+  { label: "Open to", value: "PFE internship" },
+  { label: "Interests", value: "Clean UI & solid backend systems" },
+];
 
 export default function AboutPage() {
   return (
-    <section className="space-y-10">
-      <div className="surface-panel rounded-3xl p-8 sm:p-10">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div className="flex items-center gap-4">
-          <Image
-            src="/avatar.jpg"
-            alt="Mohamed Dhia Chairet"
-            width={64}
-            height={64}
-            className="h-16 w-16 rounded-full object-cover ring-2 ring-white/20"
-          />
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-slate-400">About</p>
-            <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mt-2">Mohamed Dhia Chairet</h1>
-            <p className="text-slate-300 text-base leading-relaxed">
-              Software Engineering student • Full-stack developer
-            </p>
-          </div>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <a href="/MohamedDhiaChairetResume.pdf" download className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/10 transition">Download CV</a>
-            <a href="/contact" className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/10 transition">Contact</a>
-            <a href="https://www.linkedin.com/in/dhia-chairet-baba16249/" target="_blank" rel="noreferrer" className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/10 transition">LinkedIn</a>
-          </div>
-        </div>
-      </div>
+    <>
+      <section className="relative">
+        <div aria-hidden="true" className="bg-grid full-bleed absolute -top-40 -z-10 h-[40rem]" />
+        <div className="grid gap-14 lg:grid-cols-[1fr_22rem] lg:items-end">
+          <Reveal>
+            <Eyebrow>About</Eyebrow>
+            <h1 className="mt-6 text-[clamp(3rem,8.5vw,7.5rem)] leading-[0.92] font-medium tracking-[-0.05em]">
+              Mohamed Dhia <Serif className="text-accent">Chairet</Serif>
+            </h1>
+            <p className="mt-4 font-mono text-sm text-subtle">Software Engineering student • Full-stack developer</p>
+            <div className="mt-8 max-w-2xl space-y-4 text-lg leading-relaxed text-muted">
+              <p>
+                Final-year Software Engineering student at TEK-UP University with four internships across Java/Spring
+                Boot, Angular and MERN. I like building websites and seeing them come to life: the backend, the
+                database, the UI, all of it.
+              </p>
+              <p>
+                I&apos;ve built a few complete systems on my own, including an AI-powered e-learning platform and a
+                voice-based AI interview simulator. Still figuring things out as I go, but everything you see here
+                actually runs.
+              </p>
+            </div>
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <ButtonLink href={siteConfig.resumeUrl} variant="primary" download>
+                Download CV <Download className="size-4" />
+              </ButtonLink>
+              <ButtonLink href={siteConfig.linkedinUrl} external>
+                <LinkedinIcon className="size-4" /> LinkedIn <ArrowUpRight className="size-4" />
+              </ButtonLink>
+              <ButtonLink href="/contact" variant="ghost">
+                Contact
+              </ButtonLink>
+            </div>
+          </Reveal>
 
-      <div className="grid gap-6 md:grid-cols-3">
-        <div className="md:col-span-2 surface-panel rounded-2xl p-6">
-          <h2 className="text-xl font-semibold mb-4 text-white">About me</h2>
-          <p className="text-base text-slate-300 leading-relaxed">
-            Fourth-year Software Engineering student at TEK-UP University. I like building websites and seeing them come to
-            life, the backend, the database, the UI, all of it. I&apos;ve built a few complete systems on my own, including an
-            AI-powered e-learning platform. Still figuring things out as I go, but everything you see here actually runs.
-          </p>
+          <Reveal delay={0.15} className="mx-auto w-full max-w-xs lg:max-w-none">
+            <figure className="group relative rotate-2 overflow-hidden rounded-[2rem] border border-line bg-surface p-2 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] transition-transform duration-500 hover:rotate-0">
+              <Image
+                src="/avatar.jpg"
+                alt="Portrait of Mohamed Dhia Chairet"
+                width={640}
+                height={800}
+                priority
+                className="aspect-[4/5] w-full rounded-[1.5rem] object-cover grayscale-[35%] transition duration-700 group-hover:grayscale-0"
+              />
+              <figcaption className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-full border border-white/10 bg-black/55 px-4 py-2 text-xs backdrop-blur-md">
+                <span className="font-medium">Dhia Chairet</span>
+                <span className="inline-flex items-center gap-1.5 font-mono text-[11px] text-white/70">
+                  <MapPin className="size-3" /> Tunis
+                </span>
+              </figcaption>
+            </figure>
+          </Reveal>
         </div>
-        <div className="surface-panel rounded-2xl p-6">
-          <h3 className="text-lg font-semibold mb-3 text-white">Quick facts</h3>
-          <ul className="text-base space-y-2 text-slate-300 leading-relaxed">
-            <li>Location: Tunisia</li>
-            <li>Open to: internships and part-time</li>
-            <li>Focus: Full-stack web development</li>
-            <li>Interests: Clean UI and solid backend systems</li>
-          </ul>
-        </div>
-      </div>
 
-      <div className="surface-panel rounded-2xl p-6">
-        <h2 className="text-xl font-semibold mb-6 text-white">Skills</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <h3 className="text-base font-semibold text-slate-200 mb-3">Languages</h3>
-            <div className="flex flex-wrap gap-2">
-              {["Java", "TypeScript", "JavaScript", "Python", "PHP", "Dart", "C++"].map((s) => (
-                <span key={s} className="chip text-xs rounded-full px-3 py-1.5 font-semibold">
-                  {s}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-base font-semibold text-slate-200 mb-3">Frontend</h3>
-            <div className="flex flex-wrap gap-2">
-              {["Next.js", "React", "Angular", "Thymeleaf", "Twig", "HTML/CSS"].map((s) => (
-                <span key={s} className="chip text-xs rounded-full px-3 py-1.5 font-semibold">
-                  {s}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-base font-semibold text-slate-200 mb-3">Backend</h3>
-            <div className="flex flex-wrap gap-2">
-              {["Node.js", "Express.js", "Spring Boot", "Symfony", ".NET"].map((s) => (
-                <span key={s} className="chip text-xs rounded-full px-3 py-1.5 font-semibold">
-                  {s}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-base font-semibold text-slate-200 mb-3">Databases</h3>
-            <div className="flex flex-wrap gap-2">
-              {["MongoDB", "MySQL", "PostgreSQL"].map((s) => (
-                <span key={s} className="chip text-xs rounded-full px-3 py-1.5 font-semibold">
-                  {s}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-base font-semibold text-slate-200 mb-3">Testing & QA</h3>
-            <div className="flex flex-wrap gap-2">
-              {["Postman", "Thunder Client", "Swagger"].map((s) => (
-                <span key={s} className="chip text-xs rounded-full px-3 py-1.5 font-semibold">
-                  {s}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-base font-semibold text-slate-200 mb-3">DevOps & Tools</h3>
-            <div className="flex flex-wrap gap-2">
-              {["Git", "GitHub", "GitLab", "GitHub Actions", "Docker (Basic)", "Vercel", "Figma", "VS Code"].map((s) => (
-                <span key={s} className="chip text-xs rounded-full px-3 py-1.5 font-semibold">
-                  {s}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="mt-4">
-          <h3 className="text-base font-semibold text-slate-200 mb-3">Others</h3>
-          <div className="flex flex-wrap gap-2">
-            {["REST APIs", "Agile", "RBAC", "JWT Authentication"].map((s) => (
-              <span key={s} className="chip text-xs rounded-full px-3 py-1.5 font-semibold">
-                {s}
-              </span>
+        <Reveal delay={0.2}>
+          <dl className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-line bg-line lg:grid-cols-4">
+            {quickFacts.map((fact) => (
+              <div key={fact.label} className="bg-background p-5 sm:p-6">
+                <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-subtle">{fact.label}</dt>
+                <dd className="mt-3 text-base font-medium tracking-[-0.01em] sm:text-lg">{fact.value}</dd>
+              </div>
             ))}
-          </div>
-        </div>
-      </div>
+          </dl>
+        </Reveal>
+      </section>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <div className="surface-panel rounded-2xl p-6">
-          <h2 className="text-xl font-semibold mb-4 text-white">Experience</h2>
-          <div className="space-y-4">
-            <div>
-              <div className="flex items-start justify-between mb-1">
-                <h3 className="font-semibold text-base text-white">Full-Stack Developer</h3>
-                <span className="text-sm text-slate-400 font-medium">2024</span>
-              </div>
-              <div className="text-base text-slate-300 mb-2 font-medium">IResCoMath Lab</div>
-              <ul className="text-sm text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
-                <li>Built a full-stack research management system serving 30+ members, covering authentication, publication tracking, and member administration.</li>
-                <li>Developed a React frontend with Hooks-based state management and React Router, smoothing navigation across core views.</li>
-                <li>Engineered a custom XML parser to sync publication data from DBLP.org into MongoDB, eliminating manual data entry.</li>
-              </ul>
-            </div>
-            <div>
-              <div className="flex items-start justify-between mb-1">
-                <h3 className="font-semibold text-base text-white">Mobile Developer Intern</h3>
-                <span className="text-sm text-slate-400 font-medium">2023</span>
-              </div>
-              <div className="text-base text-slate-300 mb-2 font-medium">Mammut Web Solutions</div>
-              <ul className="text-sm text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
-                <li>Built a Flutter quiz app for medical professionals with a clean, responsive UI across 10+ question categories.</li>
-                <li>Designed and integrated a Node.js REST API handling quiz logic, user sessions, and result tracking.</li>
-                <li>Tested endpoints with Postman to validate flows and edge cases.</li>
-              </ul>
-            </div>
-          </div>
+      <section className="mt-28 sm:mt-40">
+        <SectionHeading
+          index="01"
+          label="Experience"
+          title={
+            <>
+              Where I&apos;ve <Serif>worked</Serif>
+            </>
+          }
+        />
+        <ExperienceList detailed />
+      </section>
+
+      <section className="mt-28 sm:mt-40">
+        <SectionHeading
+          index="02"
+          label="Skills"
+          title={
+            <>
+              Tools of the <Serif>trade</Serif>
+            </>
+          }
+        />
+        <dl className="border-b border-line">
+          {skills.map((skill, i) => (
+            <Reveal
+              key={skill.group}
+              delay={(i % 4) * 0.04}
+              className="grid gap-4 border-t border-line py-6 md:grid-cols-[14rem_1fr] md:gap-10"
+            >
+              <dt className="pt-1.5 font-mono text-xs uppercase tracking-[0.16em] text-subtle">{skill.group}</dt>
+              <dd>
+                <ul className="flex flex-wrap gap-2">
+                  {skill.items.map((item) => (
+                    <TechChip key={item} name={item} size="md" />
+                  ))}
+                </ul>
+              </dd>
+            </Reveal>
+          ))}
+        </dl>
+      </section>
+
+      <section className="mt-28 sm:mt-40">
+        <SectionHeading
+          index="03"
+          label="Education"
+          title={
+            <>
+              Where I <Serif>learned</Serif>
+            </>
+          }
+        />
+        <ol className="border-b border-line">
+          {education.map((item) => (
+            <li key={item.school} className="border-t border-line">
+              <Reveal className="grid gap-4 py-8 md:grid-cols-[14rem_1fr] md:gap-10">
+                <div className="font-mono text-xs uppercase tracking-[0.16em] text-subtle">
+                  <p className="text-muted">{item.period}</p>
+                  <p className="mt-2">{item.location}</p>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-medium tracking-[-0.03em] sm:text-3xl">{item.school}</h3>
+                  <p className="mt-2 text-muted">{item.degree}</p>
+                </div>
+              </Reveal>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="mt-28 sm:mt-40">
+        <SectionHeading
+          index="04"
+          label="Beyond code"
+          title={
+            <>
+              A little <Serif>more</Serif>
+            </>
+          }
+        />
+        <div className="grid gap-4 md:grid-cols-2">
+          <Reveal className="rounded-3xl border border-line bg-surface/60 p-6 sm:p-8">
+            <Eyebrow>Languages</Eyebrow>
+            <ul className="mt-6 divide-y divide-line">
+              {spokenLanguages.map((lang) => (
+                <li key={lang.name} className="flex items-baseline justify-between py-3">
+                  <span className="text-xl font-medium tracking-[-0.02em]">{lang.name}</span>
+                  <span className="font-mono text-xs text-subtle">{lang.level}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={0.08} className="rounded-3xl border border-line bg-surface/60 p-6 sm:p-8">
+            <Eyebrow>Involvement</Eyebrow>
+            <ul className="mt-6 divide-y divide-line">
+              {involvement.map((item) => (
+                <li key={item.name} className="flex items-baseline justify-between py-3">
+                  <span className="text-xl font-medium tracking-[-0.02em]">{item.name}</span>
+                  <span className="font-mono text-xs text-subtle">{item.period}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
-        <div className="surface-panel rounded-2xl p-6">
-          <h2 className="text-xl font-semibold mb-4 text-white">Education</h2>
-          <div className="space-y-4">
-            <div>
-              <div className="font-semibold text-base text-white">Bachelor of Software Engineering (GLSI)</div>
-              <div className="text-base text-slate-300 leading-relaxed">TEK-UP University, Tunis, Tunisia</div>
-              <div className="text-sm text-slate-400 font-medium">2025</div>
-              <div className="text-sm text-slate-300 leading-relaxed">Fourth-year student focused on full-stack web development and software architecture.</div>
-            </div>
-            <div>
-              <div className="font-semibold text-base text-white">License in Computer Science and Multimedia</div>
-              <div className="text-base text-slate-300 leading-relaxed">ISIMG (Higher Institute of Computer Science and Multimedia), Gabes, Tunisia</div>
-              <div className="text-sm text-slate-400 font-medium">2022</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
-
-

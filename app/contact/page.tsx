@@ -1,66 +1,117 @@
+import { ArrowUpRight } from "lucide-react";
+import ContactForm from "../components/ContactForm";
+import CopyEmail from "../components/CopyEmail";
+import LocalTime from "../components/LocalTime";
+import Reveal from "../components/Reveal";
+import { Eyebrow, Serif } from "../components/ui";
+import { siteConfig } from "../../lib/site";
+
 export const metadata = {
-  title: "Contact — Mohamed Dhia Chairet",
+  title: "Contact",
 };
 
-function IconMail(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" {...props}>
-      <path d="M3.75 6.75h16.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V6.75Z" />
-      <path d="M3.75 6.75 12 12l8.25-5.25" />
-    </svg>
-  );
-}
-
-function IconGithub(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-      <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.61-3.37-1.36-3.37-1.36-.45-1.18-1.12-1.5-1.12-1.5-.92-.64.07-.63.07-.63 1.02.07 1.55 1.07 1.55 1.07.9 1.57 2.36 1.12 2.93.85.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05.8-.23 1.66-.35 2.52-.35s1.72.12 2.52.35c1.91-1.32 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.95-2.35 4.82-4.58 5.07.36.31.68.92.68 1.86 0 1.34-.01 2.41-.01 2.73 0 .27.18.6.69.49 3.96-1.35 6.83-5.18 6.83-9.7C22 6.58 17.52 2 12 2Z" />
-    </svg>
-  );
-}
-
-function IconLinkedIn(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-      <path d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6A2.49 2.49 0 1 1 4.98 3.5ZM3 8h3v13H3V8Zm7 0h2.88v1.77h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6V21H16v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.37 1.6-2.37 3.26V21H9V8Z" />
-    </svg>
-  );
-}
+const channels = [
+  { label: "Email", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
+  {
+    label: "GitHub",
+    value: `github.com/${siteConfig.githubUsername}`,
+    href: `https://github.com/${siteConfig.githubUsername}`,
+    external: true,
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/dhia-chairet-baba16249",
+    href: siteConfig.linkedinUrl,
+    external: true,
+  },
+  { label: "Resume", value: "Download PDF", href: siteConfig.resumeUrl, download: true },
+];
 
 export default function ContactPage() {
   return (
-    <section className="space-y-8 max-w-2xl">
-      <div className="surface-panel rounded-3xl p-8 sm:p-10">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Contact</p>
-    
-        <p className="text-sm text-slate-300 mt-4">
-          Software engineering student looking for internships or part-time work where I can actually write code and contribute. If you have something going on, feel free to reach out.
-        </p>
-        <div className="mt-6 grid gap-3">
-          <a href="mailto:mohameddhia.chairet@gmail.com" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white hover:border-cyan-300/40 hover:bg-white/10 transition min-w-0">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
-              <IconMail className="h-5 w-5" />
-            </span>
-            <span className="font-semibold break-all">mohameddhia.chairet@gmail.com</span>
-          </a>
+    <section className="relative">
+      <div aria-hidden="true" className="bg-grid full-bleed absolute -top-40 -z-10 h-[40rem]" />
 
-          <a href="https://github.com/Dhiachairet" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white hover:border-cyan-300/40 hover:bg-white/10 transition min-w-0">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
-              <IconGithub className="h-5 w-5" />
-            </span>
-            <span className="font-semibold break-all">github.com/Dhiachairet</span>
-          </a>
+      <Reveal>
+        <Eyebrow>Contact</Eyebrow>
+        <h1 className="mt-6 max-w-6xl text-[clamp(3rem,9vw,8rem)] leading-[0.92] font-medium tracking-[-0.05em]">
+          Let&apos;s build <Serif className="text-accent">something</Serif> together.
+        </h1>
+      </Reveal>
 
-          <a href="https://www.linkedin.com/in/dhia-chairet-baba16249/" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white hover:border-cyan-300/40 hover:bg-white/10 transition min-w-0">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
-              <IconLinkedIn className="h-5 w-5" />
-            </span>
-            <span className="font-semibold break-all">linkedin.com/in/dhia-chairet-baba16249</span>
-          </a>
+      <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-start">
+        <Reveal delay={0.1}>
+          <p className="max-w-xl text-lg leading-relaxed text-muted">
+            Final-year software engineering student looking for an end-of-study internship (PFE) where I can actually
+            write code and contribute. If you have something going on, send me a message below and it lands straight
+            in my inbox.
+          </p>
+          <div id="message" className="mt-8 scroll-mt-28">
+            <ContactForm />
+          </div>
+        </Reveal>
+
+        <div className="space-y-4 lg:sticky lg:top-28">
+          <Reveal delay={0.2} className="rounded-3xl border border-line bg-surface/60 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+            <Eyebrow>Status</Eyebrow>
+            <p className="mt-3 flex items-center gap-2.5 text-lg font-medium">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-70" />
+                <span className="relative inline-flex size-2 rounded-full bg-accent" />
+              </span>
+              Open to PFE internships
+            </p>
+            <div className="mt-6 grid grid-cols-2 gap-4 border-t border-line pt-6">
+              <div>
+                <Eyebrow>Local time</Eyebrow>
+                <LocalTime
+                  timeZone={siteConfig.timeZone}
+                  className="mt-2 block text-2xl font-medium tracking-[-0.03em] tabular-nums"
+                />
+              </div>
+              <div>
+                <Eyebrow>Based in</Eyebrow>
+                <p className="mt-2 text-2xl font-medium tracking-[-0.03em]">Tunisia</p>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.25} className="rounded-3xl border border-line bg-surface/60 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+            <Eyebrow>Prefer email?</Eyebrow>
+            <p className="mt-3 text-sm leading-relaxed text-muted">Copy my address and write from your own inbox.</p>
+            <div className="mt-5">
+              <CopyEmail email={siteConfig.email} />
+            </div>
+          </Reveal>
         </div>
       </div>
+
+      <ul className="mt-20 border-b border-line sm:mt-28">
+        {channels.map((channel, i) => (
+          <li key={channel.label} className="border-t border-line">
+            <Reveal delay={i * 0.05}>
+              <a
+                href={channel.href}
+                target={channel.external ? "_blank" : undefined}
+                rel={channel.external ? "noreferrer" : undefined}
+                download={channel.download || undefined}
+                className="group flex items-center gap-4 py-6 sm:gap-8 sm:py-8"
+              >
+                <span className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:gap-8">
+                  <span className="shrink-0 font-mono text-xs uppercase tracking-[0.16em] text-subtle sm:w-32">
+                    {channel.label}
+                  </span>
+                  <span className="min-w-0 text-xl font-medium tracking-[-0.03em] [overflow-wrap:anywhere] transition-colors duration-300 group-hover:text-accent sm:text-4xl">
+                    {channel.value}
+                  </span>
+                </span>
+                <span className="grid size-10 shrink-0 place-items-center rounded-full border border-line-strong transition-all duration-300 group-hover:rotate-45 group-hover:border-accent group-hover:bg-accent group-hover:text-accent-foreground sm:size-12">
+                  <ArrowUpRight className="size-5" />
+                </span>
+              </a>
+            </Reveal>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
-
-

@@ -8,6 +8,8 @@ export type Repo = {
   homepage?: string | null;
   topics?: string[];
   stargazers_count?: number;
+  language?: string | null;
+  pushed_at?: string;
   fork?: boolean;
   videoUrl?: string;
   technologies?: string[];
@@ -29,6 +31,7 @@ const projectTechnologies: Record<string, string[]> = {
   "Employee-Management-System-EMS-": ["Java 17", "Spring Boot 3", "Spring Security", "JWT", "Thymeleaf", "MySQL", "Docker"],
   "HealthCareSystem": ["Symfony 6", "Doctrine ORM", "MySQL", "Twig", "EasyAdmin", "VichUploaderBundle"],
   "Ai-Interview-Simulator": ["Next.js", "TypeScript", "OpenAI API", "Vapi", "MongoDB", "Vercel"],
+  "Irescomath-Research-Lab-Management": ["MongoDB", "Express.js", "React", "Node.js"],
 };
 
 export async function fetchGithubRepos(): Promise<Repo[]> {

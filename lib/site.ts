@@ -1,9 +1,14 @@
 export const siteConfig = {
   name: "Mohamed Dhia Chairet",
-  titleTemplate: "%s — Mohamed Dhia Chairet",
-  description: "Personal portfolio of Mohamed Dhia Chairet — projects, experience, and contact.",
+  titleTemplate: "%s | Mohamed Dhia Chairet",
+  description: "Personal portfolio of Mohamed Dhia Chairet: projects, experience, and contact.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   githubUsername: process.env.NEXT_PUBLIC_GITHUB_USERNAME || "Dhiachairet",
+  resumeUrl: "/DhiaChairetResume.pdf",
+  email: "mohameddhia.chairet@gmail.com",
+  linkedinUrl: "https://www.linkedin.com/in/dhia-chairet-baba16249/",
+  location: "Tunis, Tunisia",
+  timeZone: "Africa/Tunis",
   pinnedRepos: [
     "LearnAI-Hub-E-Learning-platform",
     "Ai-Interview-Simulator",
@@ -16,5 +21,3 @@ export const siteConfig = {
     creator: "",
   },
 };
-
-
